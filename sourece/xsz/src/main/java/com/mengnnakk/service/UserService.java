@@ -1,13 +1,17 @@
 package com.mengnnakk.service;
 
 
-import com.alipay.api.domain.PageInfo;
+import com.baomidou.mybatisplus.service.IService;
+import com.github.pagehelper.PageInfo;
 import com.mengnnakk.entry.User;
+import com.mengnnakk.entry.UserEventLog;
 import com.mengnnakk.entry.other.KeyValue;
+import com.mengnnakk.viewmodel.admin.user.UserEventPageRequestVM;
+import com.mengnnakk.viewmodel.admin.user.UserPageRequestVM;
 
 import java.util.List;
 
-public interface UserService extends BaseService<User> {
+public interface UserService extends IService<User> {
     /**
      * getUsers
      *
@@ -75,6 +79,8 @@ public interface UserService extends BaseService<User> {
     PageInfo<User> userPage(UserPageRequestVM requestVM);
 
 
+    PageInfo<User> userPage(UserPageRequestVM requestVM);
+
     /**
      * insertUser
      *
@@ -123,4 +129,8 @@ public interface UserService extends BaseService<User> {
     User selectByWxOpenId(String wxOpenId);
 
     void changePicture(User user, String imagePath);
+
+    PageInfo<UserEventLog> page(UserEventPageRequestVM requestVM);
+
+    List<Integer> selectMothCount();
 }
