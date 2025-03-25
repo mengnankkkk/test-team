@@ -8,6 +8,7 @@ import com.mengnnakk.entry.User;
 import com.mengnnakk.entry.UserEventLog;
 import com.mengnnakk.entry.other.KeyValue;
 import com.mengnnakk.mapper.UserEventLogMapper;
+import com.mengnnakk.service.UserEventLogService;
 import com.mengnnakk.service.UserService;
 import com.mengnnakk.utility.DateTimeUtil;
 import com.mengnnakk.viewmodel.admin.user.UserEventPageRequestVM;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UserEventLogServiceImpl extends ServiceImpl<UserEventLogMapper, UserEventLog> implements UserService {
+public class UserEventLogServiceImpl extends ServiceImpl<UserEventLogMapper, UserEventLog> implements UserEventLogService {
 
     private final UserEventLogMapper userEventLogMapper;
 
@@ -30,93 +31,8 @@ public class UserEventLogServiceImpl extends ServiceImpl<UserEventLogMapper, Use
     }
 
     @Override
-    public List<User> getUsers() {
-        return null;
-    }
-
-    @Override
-    public User getUserById(Integer id) {
-        return null;
-    }
-
-    @Override
-    public User getUserByUserName(String username) {
-        return null;
-    }
-
-    @Override
-    public User getUserByUserNamePwd(String username, String pwd) {
-        return null;
-    }
-
-    @Override
-    public User getUserByUuid(String uuid) {
-        return null;
-    }
-
-    @Override
-    public List<User> userPageList(String name, Integer pageIndex, Integer pageSize) {
-        return null;
-    }
-
-    @Override
-    public Integer userPageCount(String name) {
-        return null;
-    }
-
-    @Override
-    public PageInfo<User> userPage(UserPageRequestVM requestVM) {
-        return null;
-    }
-
-    @Override
-    public void insertUser(User user) {
-
-    }
-
-    @Override
-    public void insertUsers(List<User> users) {
-
-    }
-
-    @Override
-    public void updateUser(User user) {
-
-    }
-
-    @Override
-    public void updateUsersAge(Integer age, List<Integer> ids) {
-
-    }
-
-    @Override
-    public void deleteUserByIds(List<Integer> ids) {
-
-    }
-
-    @Override
-    public Integer selectAllCount() {
-        return null;
-    }
-
-    @Override
-    public List<KeyValue> selectByUserName(String userName) {
-        return null;
-    }
-
-    @Override
-    public List<User> selectByIds(List<Integer> ids) {
-        return null;
-    }
-
-    @Override
-    public User selectByWxOpenId(String wxOpenId) {
-        return null;
-    }
-
-    @Override
-    public void changePicture(User user, String imagePath) {
-
+    public List<UserEventLog> getUserEventLogByUserId(Integer id) {
+        return userEventLogMapper.getUserEventLogByUserId(id);
     }
 
     @Override
