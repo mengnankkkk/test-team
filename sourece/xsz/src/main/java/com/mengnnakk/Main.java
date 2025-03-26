@@ -1,6 +1,7 @@
 package com.mengnnakk;
 
 
+import com.mengnnakk.configuration.property.SystemConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

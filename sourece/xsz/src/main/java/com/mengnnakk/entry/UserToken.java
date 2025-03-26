@@ -1,5 +1,7 @@
 package com.mengnnakk.entry;
 
+import com.baomidou.mybatisplus.mapper.Wrapper;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -39,7 +41,7 @@ public class UserToken implements Serializable {
      */
     private String userName;
 
-    public Integer getId() {
+    public Wrapper<UserToken> getId() {
         return id;
     }
 
