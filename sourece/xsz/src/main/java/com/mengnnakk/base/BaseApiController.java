@@ -1,6 +1,7 @@
 package com.mengnnakk.base;
 
 
+import com.mengnnakk.entry.User;
 import com.mindskip.xzs.context.WebContext;
 import com.mindskip.xzs.domain.User;
 import com.mindskip.xzs.utility.ModelMapperSingle;
