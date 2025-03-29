@@ -7,18 +7,22 @@ import com.mengnnakk.base.BaseApiController;
 import com.mengnnakk.base.RestResponse;
 import com.mengnnakk.entry.User;
 import com.mengnnakk.entry.UserEventLog;
+import com.mengnnakk.entry.enums.UserStatusEnum;
+import com.mengnnakk.entry.other.KeyValue;
 import com.mengnnakk.service.AuthenticationService;
 import com.mengnnakk.service.UserEventLogService;
 import com.mengnnakk.service.UserService;
 import com.mengnnakk.utility.DateTimeUtil;
 import com.mengnnakk.utility.PageInfoHelper;
 import com.mengnnakk.viewmodel.admin.user.*;
+import org.bouncycastle.LICENSE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -138,7 +142,7 @@ public class UserController extends BaseApiController {
      * @return
      */
     @RequestMapping(value = "/update",method = RequestMethod.POST)
-public RestResponse update(@RequestBody @Valid UserUpdateVM model){
+    public RestResponse update(@RequestBody @Valid UserUpdateVM model){
         User user = userService.selectById(getCurrentUser().getId());
         modelMapper.map(model,user);
         user.setModifyTime(new Date());
@@ -147,9 +151,43 @@ public RestResponse update(@RequestBody @Valid UserUpdateVM model){
     }
 
 
+    /**
+     * 修改状态
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "changeStatus/{id}",method = RequestMethod.POST)
+    public RestResponse<Integer> changeStatus(@PathVariable Integer id){
+        User user = userService.getUserById(id);
+        UserStatusEnum userStatusEnum = UserStatusEnum.fromCode(user.getStatus());
+        Integer newStatus = userStatusEnum == UserStatusEnum.Enable?UserStatusEnum.Disable.getCode() : UserStatusEnum.Enable.getCode();
+        user.setStatus(newStatus);
+        user.setModifyTime(new Date());
+        userService.updateById(user);
+        return RestResponse.ok(newStatus);
+    }
 
+    /**
+     * 删除用户
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.POST)
+    public RestResponse delete(@PathVariable Integer id){
+        User user = userService.getUserById(id);
+        user.setDeleted(true);
+        userService.updateById(user);
+        return RestResponse.ok();
+    }
 
-
-
-
+    /**
+     * 查找指定用户名的用户
+     * @param userName
+     * @return
+     */
+    @RequestMapping(value = "/selectByUserName",method = RequestMethod.POST)
+    public RestResponse<List<KeyValue>> selectByUserName(@RequestBody String userName){
+        List<KeyValue> keyValues = userService.selectByUserName(userName);
+        return RestResponse.ok(keyValues);
+    }
 }

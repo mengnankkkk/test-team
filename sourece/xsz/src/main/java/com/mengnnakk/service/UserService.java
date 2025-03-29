@@ -79,7 +79,6 @@ public interface UserService extends IService<User> {
     PageInfo<User> userPage(UserPageRequestVM requestVM);
 
 
-    PageInfo<User> userPage(UserPageRequestVM requestVM);
 
     /**
      * insertUser
