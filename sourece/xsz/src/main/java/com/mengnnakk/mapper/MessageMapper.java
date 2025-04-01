@@ -17,4 +17,6 @@ public interface MessageMapper extends BaseMapper<Message> {
     int readAdd(Integer id);
 
     void insertSelective(Message message);
+
+    Message selectByPrimaryKey(Integer messageId);
 }

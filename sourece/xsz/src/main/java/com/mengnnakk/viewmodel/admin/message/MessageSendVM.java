@@ -1,4 +1,4 @@
-package com.mindskip.xzs.viewmodel.admin.message;
+package com.mengnnakk.viewmodel.admin.message;
 
 
 

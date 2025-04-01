@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -53,18 +55,37 @@ public class MessageServiceImpl implements MessageService {
         messageUserMapper.inserts(messageUsers);
     }
 
+    /**
+     * 此方法暂时实现不了
+     * @param id
+     */
+
     @Override
+    @Transactional
     public void read(Integer id) {
+        MessageUser messageUser = (MessageUser) messageUserMapper.selectByMessageIds(Collections.singletonList(id));
+        if (messageUser.getReaded())
+            return;
+        messageUser.setReaded(true);
+        messageUser.setReadTime(new Date());
+        messageUserMapper.updateById(messageUser);
+
 
     }
 
     @Override
     public Integer unReadCount(Integer userId) {
-        return null;
+        return messageUserMapper.unReadCount(userId);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public Message messageDetail(Integer id) {
-        return null;
+        MessageUser messageUser = messageUserMapper.selectByPrimaryKey(id);
+        return messageMapper.selectByPrimaryKey(messageUser.getMessageId());
     }
 }
