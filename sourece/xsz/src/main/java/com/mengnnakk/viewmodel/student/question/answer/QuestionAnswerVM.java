@@ -1,7 +1,8 @@
-package com.mindskip.xzs.viewmodel.student.question.answer;
+package com.mengnnakk.viewmodel.student.question.answer;
 
-import com.mindskip.xzs.viewmodel.admin.question.QuestionEditRequestVM;
-import com.mindskip.xzs.viewmodel.student.exam.ExamPaperSubmitItemVM;
+
+import com.mengnnakk.viewmodel.admin.question.QuestionEditRequestVM;
+import com.mengnnakk.viewmodel.student.exam.ExamPaperSubmitItemVM;
 
 public class QuestionAnswerVM {
     private QuestionEditRequestVM questionVM;

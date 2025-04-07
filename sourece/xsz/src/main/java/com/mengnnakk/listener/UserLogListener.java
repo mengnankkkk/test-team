@@ -1,8 +1,9 @@
 package com.mengnnakk.listener;
 
-import com.mindskip.xzs.event.UserEvent;
-import com.mindskip.xzs.service.UserEventLogService;
+import com.mengnnakk.event.UserEvent;
+import com.mengnnakk.service.UserEventLogService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
@@ -29,7 +30,7 @@ public class UserLogListener implements ApplicationListener<UserEvent> {
 
     @Override
     public void onApplicationEvent(UserEvent userEvent) {
-        userEventLogService.insertByFilter(userEvent.getUserEventLog());
+        userEventLogService.insert(userEvent.getUserEventLog());
     }
 
 }

@@ -1,7 +1,8 @@
 package com.mengnnakk.listener;
 
-import com.mindskip.xzs.domain.User;
-import com.mindskip.xzs.event.OnRegistrationCompleteEvent;
+
+import com.mengnnakk.entry.User;
+import com.mengnnakk.event.OnRegistrationCompleteEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;

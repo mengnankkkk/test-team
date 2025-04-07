@@ -1,13 +1,7 @@
 package com.mengnnakk.listener;
 
-import com.mindskip.xzs.domain.*;
-import com.mindskip.xzs.domain.enums.ExamPaperTypeEnum;
-import com.mindskip.xzs.domain.enums.QuestionTypeEnum;
-import com.mindskip.xzs.event.CalculateExamPaperAnswerCompleteEvent;
-import com.mindskip.xzs.service.ExamPaperAnswerService;
-import com.mindskip.xzs.service.ExamPaperQuestionCustomerAnswerService;
-import com.mindskip.xzs.service.TaskExamCustomerAnswerService;
-import com.mindskip.xzs.service.TextContentService;
+
+import com.mengnnakk.event.CalculateExamPaperAnswerCompleteEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -59,7 +53,7 @@ public class CalculateExamPaperAnswerListener implements ApplicationListener<Cal
 
         examPaperAnswerService.insertByFilter(examPaperAnswer);
         examPaperQuestionCustomerAnswers.stream().filter(a -> QuestionTypeEnum.needSaveTextContent(a.getQuestionType())).forEach(d -> {
-            TextContent textContent = new TextContent(d.getAnswer(), now);
+            com.mindskip.xzs.domain.TextContent textContent = new com.mindskip.xzs.domain.TextContent(d.getAnswer(), now);
             textContentService.insertByFilter(textContent);
             d.setTextContentId(textContent.getId());
             d.setAnswer(null);

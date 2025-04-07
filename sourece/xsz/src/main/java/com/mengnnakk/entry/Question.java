@@ -1,7 +1,8 @@
 package com.mengnnakk.entry;
 
+import com.mengnnakk.entry.enums.QuestionTypeEnum;
 import com.mengnnakk.utility.ExamUtil;
-import com.mindskip.xzs.domain.enums.QuestionTypeEnum;
+
 
 
 import java.io.Serializable;

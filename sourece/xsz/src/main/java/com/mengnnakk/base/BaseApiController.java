@@ -1,10 +1,10 @@
 package com.mengnnakk.base;
 
 
+import com.mengnnakk.context.WebContext;
 import com.mengnnakk.entry.User;
-import com.mindskip.xzs.context.WebContext;
-import com.mindskip.xzs.domain.User;
-import com.mindskip.xzs.utility.ModelMapperSingle;
+
+import com.mengnnakk.utility.ModelMapperSingle;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 

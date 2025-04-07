@@ -8,7 +8,7 @@ import java.util.List;
 public class ExamPaperAnswerInfo {
     public ExamPaper examPaper;
     public ExamPaperAnswer examPaperAnswer;
-    public List<com.mindskip.xzs.domain.ExamPaperQuestionCustomerAnswer> examPaperQuestionCustomerAnswers;
+    public List<ExamPaperQuestionCustomerAnswer> examPaperQuestionCustomerAnswers;
 
     public ExamPaper getExamPaper() {
         return examPaper;

@@ -3,8 +3,11 @@ package com.mengnnakk.configuration.spring.wx;
 
 import com.mengnnakk.base.SystemCode;
 import com.mengnnakk.configuration.spring.security.RestUtil;
+import com.mengnnakk.context.WxContext;
 import com.mengnnakk.entry.User;
+import com.mengnnakk.entry.UserToken;
 import com.mengnnakk.service.UserService;
+import com.mengnnakk.service.UserTokenService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
