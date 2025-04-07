@@ -1,4 +1,4 @@
-package com.mindskip.xzs.viewmodel.admin.file;
+package com.mengnnakk.viewmodel.admin.file;
 
 
 
