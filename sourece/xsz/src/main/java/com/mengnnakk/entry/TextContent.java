@@ -1,4 +1,4 @@
-package com.mindskip.xzs.domain;
+package com.mengnnakk.entry;
 
 import java.io.Serializable;
 import java.util.Date;
