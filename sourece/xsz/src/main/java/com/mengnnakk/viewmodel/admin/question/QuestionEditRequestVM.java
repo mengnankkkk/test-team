@@ -80,7 +80,7 @@ public class QuestionEditRequestVM {
         return items;
     }
 
-    public void setItems(List<QuestionEditItemVM> items) {
+    public void setItems(List<QuestionEditRequestVM> items) {
         this.items = items;
     }
 
