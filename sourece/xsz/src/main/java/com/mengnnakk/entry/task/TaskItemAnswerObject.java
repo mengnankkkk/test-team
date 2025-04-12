@@ -1,4 +1,4 @@
-package com.mindskip.xzs.domain.task;
+package com.mengnnakk.entry.task;
 
 
 public class TaskItemAnswerObject {
@@ -6,7 +6,7 @@ public class TaskItemAnswerObject {
     private Integer examPaperAnswerId;
     private Integer status;
 
-    public TaskItemAnswerObject(){
+    public TaskItemAnswerObject(Integer examPaperId, Integer id){
 
     }
 
