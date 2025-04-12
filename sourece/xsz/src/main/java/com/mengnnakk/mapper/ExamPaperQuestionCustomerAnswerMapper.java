@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 @Mapper
-public interface ExamPaperQuestionCustomerAnswerMapper extends BaseMapper<ExamPaperQuestionCustomerAnswer>{
+public interface ExamPaperQuestionCustomerAnswerMapper extends BaseMapper<ExamPaperQuestionCustomerAnswer>, com.baomidou.mybatisplus.mapper.BaseMapper<ExamPaperQuestionCustomerAnswer> {
     List<ExamPaperQuestionCustomerAnswer> selectListByPaperAnswerId(Integer id);
 
     List<ExamPaperQuestionCustomerAnswer> studentPage(QuestionPageStudentRequestVM requestVM);
