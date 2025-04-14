@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface TaskExamMapper extends BaseMapper<TaskExam>{
+public interface TaskExamMapper extends BaseMapper<TaskExam>, com.baomidou.mybatisplus.mapper.BaseMapper<TaskExam> {
 
     List<TaskExam> page(TaskPageRequestVM requestVM);
     List<TaskExam> getByGradeLevel(Integer gradeLevel);

@@ -1,7 +1,7 @@
-package com.mindskip.xzs.viewmodel.admin.exam;
+package com.mengnnakk.viewmodel.admin.exam;
 
 
-
+import java.util.Date;
 
 public class ExamResponseVM {
     private Integer id;
@@ -54,7 +54,7 @@ public class ExamResponseVM {
         this.score = score;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
