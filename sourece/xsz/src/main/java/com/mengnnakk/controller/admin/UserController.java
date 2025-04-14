@@ -1,7 +1,6 @@
 package com.mengnnakk.controller.admin;
 
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.github.pagehelper.PageInfo;
 import com.mengnnakk.base.BaseApiController;
 import com.mengnnakk.base.RestResponse;
@@ -15,7 +14,7 @@ import com.mengnnakk.service.UserService;
 import com.mengnnakk.utility.DateTimeUtil;
 import com.mengnnakk.utility.PageInfoHelper;
 import com.mengnnakk.viewmodel.admin.user.*;
-import org.bouncycastle.LICENSE;
+import com.mengnnakk.viewmodel.student.user.MessageResponseVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -43,26 +42,28 @@ public class UserController extends BaseApiController {
 
     /**
      * 查看用户
+     *
      * @param model
      * @return
      */
     @RequestMapping(value = "/page/list",method = RequestMethod.POST)
-    public RestResponse<PageInfo<UserResponseVM>> pagelist(@RequestBody UserPageRequestVM model){
+    public RestResponse<PageInfo<MessageResponseVM>> pagelist(@RequestBody UserPageRequestVM model){
         PageInfo<User> pageInfo = userService.userPage(model);
-        PageInfo<UserResponseVM> page = PageInfoHelper.copyMap(pageInfo,d->UserResponseVM.from(d));
+        PageInfo<MessageResponseVM> page = PageInfoHelper.copyMap(pageInfo, d->UserResponseVM.from(d));
         return RestResponse.ok(page);
     }
 
     /**
      * 查看事件的用户
+     *
      * @param model
      * @return
      */
 
     @RequestMapping(value = "/event/page/list", method = RequestMethod.POST)
-    public RestResponse<PageInfo<UserEventLogVM>> eventPagelist(@Valid @RequestBody UserEventPageRequestVM model) {
+    public RestResponse<PageInfo<?>> eventPagelist(@Valid @RequestBody UserEventPageRequestVM model) {
         PageInfo<UserEventLog> pageInfo = Optional.ofNullable(userEventLogService.page(model)).orElse(new PageInfo<>());
-        PageInfo<UserEventLogVM> page = pageInfo.getList() != null ? PageInfoHelper.copyMap(pageInfo, d -> {
+        PageInfo<?> page = pageInfo.getList() != null ? PageInfoHelper.copyMap(pageInfo, d -> {
             if (d == null) return null;
             UserEventLogVM vm = modelMapper.map(d, UserEventLogVM.class);
             vm.setCreateTime(d.getCreateTime() != null ? DateTimeUtil.dateFormat(d.getCreateTime()) : "");
