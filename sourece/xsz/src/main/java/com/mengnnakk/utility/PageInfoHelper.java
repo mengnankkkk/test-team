@@ -1,7 +1,7 @@
 package com.mengnnakk.utility;
 
 import com.github.pagehelper.PageInfo;
-import com.mengnnakk.viewmodel.admin.question.QuestionResponseVM;
+import com.mengnnakk.viewmodel.admin.task.TaskPageResponseVM;
 
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -23,7 +23,7 @@ public class PageInfoHelper {
      * @param mapper the mapper
      * @return the page info
      */
-    public static <T, J> PageInfo<QuestionResponseVM> copyMap(PageInfo<T> source, Function<? super T, ? extends J> mapper) {
+    public static <T, J> PageInfo<TaskPageResponseVM> copyMap(PageInfo<T> source, Function<? super T, ? extends J> mapper) {
         PageInfo<J> newPage = new PageInfo<>();
         newPage.setPageNum(source.getPageNum());
         newPage.setPageSize(source.getPageSize());
