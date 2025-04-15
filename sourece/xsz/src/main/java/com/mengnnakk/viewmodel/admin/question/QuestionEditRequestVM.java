@@ -3,7 +3,6 @@ package com.mengnnakk.viewmodel.admin.question;
 
 import org.hibernate.validator.constraints.Range;
 
-import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
@@ -20,8 +19,7 @@ public class QuestionEditRequestVM {
 
     private Integer gradeLevel;
 
-    @Valid
-    private List<QuestionEditItemVM> items;
+    private List<QuestionEditRequestVM> items;
     @NotBlank
     private String analyze;
 
@@ -76,7 +74,7 @@ public class QuestionEditRequestVM {
         this.gradeLevel = gradeLevel;
     }
 
-    public List<QuestionEditItemVM> getItems() {
+    public List<QuestionEditRequestVM> getItems() {
         return items;
     }
 

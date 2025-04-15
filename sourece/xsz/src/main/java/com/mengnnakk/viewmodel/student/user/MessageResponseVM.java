@@ -15,6 +15,7 @@ public class MessageResponseVM {
     private String  createTime;
 
     private String sendUserName;
+    private String receiveUserName;
 
     public Integer getId() {
         return id;
@@ -70,5 +71,13 @@ public class MessageResponseVM {
 
     public void setSendUserName(String sendUserName) {
         this.sendUserName = sendUserName;
+    }
+
+    public String getReceiveUserName() {
+        return receiveUserName;
+    }
+
+    public void setReceiveUserName(String receiveUserName) {
+        this.receiveUserName = receiveUserName;
     }
 }

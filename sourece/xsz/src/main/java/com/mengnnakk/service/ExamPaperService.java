@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.service.IService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.mengnnakk.entry.ExamPaper;
+import com.mengnnakk.entry.User;
 import com.mengnnakk.viewmodel.admin.exam.ExamPaperEditRequestVM;
 import com.mengnnakk.viewmodel.admin.exam.ExamPaperPageRequestVM;
 import com.mengnnakk.viewmodel.student.dashboard.PaperFilter;
@@ -17,7 +18,7 @@ public interface ExamPaperService extends IService<ExamPaper> {
 
     PageInfo<ExamPaper> taskExamPage(ExamPaperPageRequestVM  requestVM);
     PageInfo<ExamPaper> studentPage(ExamPaperPageVM requestVM);
-    ExamPaper savePaperFromVM(ExamPaperEditRequestVM examPaperEditRequestVM);
+    ExamPaper savePaperFromVM(ExamPaperEditRequestVM examPaperEditRequestVM, User user);
     ExamPaperEditRequestVM examPaperToVM(Integer id);
     List<PageInfo> indexPaper(PaperFilter paperFilter);
     Integer selectAllCount();

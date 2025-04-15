@@ -23,7 +23,7 @@ public class PageInfoHelper {
      * @param mapper the mapper
      * @return the page info
      */
-    public static <T, J> PageInfo<TaskPageResponseVM> copyMap(PageInfo<T> source, Function<? super T, ? extends J> mapper) {
+    public static <T, J> PageInfo<J> copyMap(PageInfo<T> source, Function<? super T, ? extends J> mapper) {
         PageInfo<J> newPage = new PageInfo<>();
         newPage.setPageNum(source.getPageNum());
         newPage.setPageSize(source.getPageSize());

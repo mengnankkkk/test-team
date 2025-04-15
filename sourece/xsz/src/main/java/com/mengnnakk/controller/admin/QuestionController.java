@@ -16,6 +16,7 @@ import com.mengnnakk.viewmodel.admin.question.QuestionEditRequestVM;
 import com.mengnnakk.viewmodel.admin.question.QuestionPageRequestVM;
 import com.mengnnakk.viewmodel.admin.question.QuestionResponseVM;
 
+import com.mengnnakk.viewmodel.admin.task.TaskPageResponseVM;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -38,11 +39,12 @@ public class QuestionController extends BaseApiController {
 
     /**
      * 页面展示
+     *
      * @param model
      * @return
      */
     @RequestMapping(value = "/page",method = RequestMethod.POST)
-    public RestResponse<PageInfo<QuestionResponseVM>> pagelist(@RequestBody QuestionPageRequestVM model){
+    public RestResponse<PageInfo<TaskPageResponseVM>> pagelist(@RequestBody QuestionPageRequestVM model){
         PageInfo<Question> pageInfo = questionService.page(model);
         PageInfo<QuestionResponseVM> page = PageInfoHelper.copyMap(pageInfo, q->{
             QuestionResponseVM vm = modelMapper.map(q,QuestionResponseVM.class);
