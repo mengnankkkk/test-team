@@ -1,6 +1,6 @@
 package com.mengnnakk.controller.admin;
 
-import com.baomidou.mybatisplus.extension.api.R;
+
 import com.github.pagehelper.PageInfo;
 import com.mengnnakk.base.BaseApiController;
 import com.mengnnakk.base.RestResponse;
@@ -15,12 +15,11 @@ import com.mengnnakk.utility.*;
 import com.mengnnakk.viewmodel.admin.question.QuestionEditRequestVM;
 import com.mengnnakk.viewmodel.admin.question.QuestionPageRequestVM;
 import com.mengnnakk.viewmodel.admin.question.QuestionResponseVM;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -61,7 +60,30 @@ public class QuestionController extends BaseApiController {
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
     public RestResponse edit(@RequestBody @Valid QuestionEditRequestVM model){
         RestResponse validQuestionEditRequestResult = validQuestionEditRequestVM(model);
+        if(validQuestionEditRequestResult.getCode()!=SystemCode.OK.getCode()){
+            return validQuestionEditRequestResult;
+        }
+        if (null==model.getId()){
+            questionService.insertFullQuestion(model,getCurrentUser().getId());
+
+        }else {
+            questionService.updateFullQuestion(model);
+        }
+        return RestResponse.ok();
     }
+    @RequestMapping(value = "/select/{id}",method = RequestMethod.POST)
+    public RestResponse<QuestionEditRequestVM> select(@PathVariable Integer id){
+        QuestionEditRequestVM  newVM = questionService.getQuestionEditRequestVM(id);
+        return RestResponse.ok(newVM);
+    }
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.POST)
+    public RestResponse delete(@PathVariable Integer id){
+        Question question = questionService.selectById(id);
+        question.setDeleted(true);
+        questionService.updateById(question);//应该是updateByIdFilter方法更好哈
+        return RestResponse.ok();
+    }
+
 
     /**
      * 题目的类型与分数之间关系
