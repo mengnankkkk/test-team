@@ -1,4 +1,4 @@
-package com.mindskip.xzs.viewmodel.student.exampaper;
+package com.mengnnakk.viewmodel.student.exampaper;
 
 
 public class ExamPaperAnswerPageResponseVM {

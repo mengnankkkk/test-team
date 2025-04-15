@@ -1,4 +1,4 @@
-package com.mindskip.xzs.viewmodel.admin.paper;
+package com.mengnnakk.viewmodel.admin.paper;
 
 
 public class ExamAnswerResponseVM {
