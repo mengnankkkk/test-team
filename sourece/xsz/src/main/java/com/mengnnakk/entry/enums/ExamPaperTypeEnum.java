@@ -1,4 +1,4 @@
-package com.mindskip.xzs.domain.enums;
+package com.mengnnakk.entry.enums;
 
 import java.util.HashMap;
 import java.util.Map;
