@@ -7,7 +7,8 @@ public interface SignService {
     public boolean isSigned(String userId, LocalDate date);
 
     public long getSignCount(String userId, LocalDate date);
-    
+
+    public void printRank(int topN);
 
 
 }
