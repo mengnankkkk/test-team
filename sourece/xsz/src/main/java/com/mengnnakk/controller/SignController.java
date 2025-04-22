@@ -2,6 +2,7 @@ package com.mengnnakk.controller;
 
 import com.mengnnakk.base.BaseApiController;
 import com.mengnnakk.service.SignService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ public class SignController extends BaseApiController {
     private final SignService signService;
 
 
+    @Autowired
     public SignController(SignService signService) {
         this.signService = signService;
     }

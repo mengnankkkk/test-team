@@ -2,6 +2,7 @@ package com.mengnnakk.controller;
 
 import com.mengnnakk.base.BaseApiController;
 import com.mengnnakk.service.IpStatsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class IpController extends BaseApiController {
     private final IpStatsService ipStatsService;
 
+    @Autowired
     public IpController(IpStatsService ipStatsService) {
         this.ipStatsService = ipStatsService;
     }
