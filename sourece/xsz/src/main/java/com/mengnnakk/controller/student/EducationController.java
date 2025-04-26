@@ -11,10 +11,7 @@ import com.mengnnakk.viewmodel.student.education.SubjectVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockAsyncContext;
 import org.springframework.security.core.parameters.P;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +26,7 @@ public class EducationController extends BaseApiController {
         this.subjectService = subjectService;
     }
 
-    @RequestMapping(value = "/subject/list",method = RequestMethod.POST)
+    @PostMapping("/subject/list")
     public RestResponse<List<SubjectVM>> list(){
         User user = getCurrentUser();
         List<Subject> subjects = subjectService.getSubjectByLevel(user.getUserLevel());
@@ -40,7 +37,7 @@ public class EducationController extends BaseApiController {
         }).collect(Collectors.toList());
         return RestResponse.ok(subjectVMS);
     }
-    @RequestMapping(value = "/subject/select/{id}",method = RequestMethod.POST)
+    @PostMapping("/subject/select/{id}")
     public RestResponse<SubjectEditRequestVM> select(@PathVariable Integer id){
         Subject subject = subjectService.selectById(id);
         SubjectEditRequestVM vm = modelMapper.map(subject,SubjectEditRequestVM.class);
