@@ -2,6 +2,8 @@ package com.mengnnakk.viewmodel.admin.dashboard;
 
 
 
+import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 
 
@@ -68,5 +70,9 @@ public class IndexVM {
 
     public void setMothDayText(List<String> mothDayText) {
         this.mothDayText = mothDayText;
+    }
+
+    public void setFixedPaper(List<PageInfo> pageInfos) {
+
     }
 }
