@@ -1,4 +1,4 @@
-package com.mindskip.xzs.viewmodel.student.question.answer;
+package com.mengnnakk.viewmodel.student.question.answer;
 
 
 public class QuestionPageStudentResponseVM {
