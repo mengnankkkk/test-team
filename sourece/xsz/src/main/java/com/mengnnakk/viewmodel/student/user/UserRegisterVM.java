@@ -1,4 +1,4 @@
-package com.mindskip.xzs.viewmodel.student.user;
+package com.mengnnakk.viewmodel.student.user;
 
 
 import javax.validation.constraints.NotBlank;
