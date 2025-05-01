@@ -1,6 +1,6 @@
 package com.mengnnakk.service.impl;
 
-import com.mengnnakk.service.PubishService;
+import com.mengnnakk.service.PublishService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.stream.MapRecord;
 import org.springframework.data.redis.connection.stream.StreamOffset;
@@ -9,7 +9,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.Style;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -20,10 +19,10 @@ import java.util.Map;
 import java.util.Set;
 @Service
 @Slf4j
-public class PubishServiceImpl implements PubishService {
+public class PublishServiceImpl implements PublishService {
     private StringRedisTemplate redisTemplate;
 
-    public PubishServiceImpl(StringRedisTemplate redisTemplate){
+    public PublishServiceImpl(StringRedisTemplate redisTemplate){
         this.redisTemplate = redisTemplate;
     }
 
